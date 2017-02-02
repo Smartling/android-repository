@@ -46,7 +46,7 @@ smartling {
 **Step 4:** Add sdk dependency
 ```groovy
 dependencies {
-  compile "com.smartling.android:sdk:1.9.1"
+  compile "com.smartling.android:sdk:{latest_version}"
   ...
 }
 ```
@@ -61,7 +61,7 @@ Project AES key for the OTA updates.
 
 ### userIdentifier, userSecret
 The credentials from the project-specific token.
-> `auth` block is required for `context-capture` mode and to use method `SmartlingNetwork.getLocalesAsync()` which is applicable to `ota-serving` mode
+> `auth` block is required for `context-capture` mode
 
 ### mode
 - `ota-serving` - Published strings are served to the user in his language and displayed in the app
@@ -88,8 +88,37 @@ and they will be localized according to the SDK mode.
 
 ## Mode-specific usage
 ### OTA (over-the-air)
+
+#### Wait for the localized strings
+Generally, the localized strings for certain language are fetching from the server after activity is created. Thus, for the very first launch user will see the strings in the project source language till he goes to the other activity or relaunches the app.
+
+To prevent that and wait for the localized strings are loaded you can do the following.
+
+Create `SplashActivity` or use existing one and implement `OTAListener` interface with it.
+
+```java
+public class SplashActivity extends Activity implements OTAListener {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+    }
+
+    @Override
+    public void onStringsLoaded() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+}
+```
+Method `onStringLoaded()` is calling:
+- after strings are loaded if they don't exist for certain language or if it's the first launch after application was closed by the system or force-quitted by the user
+- after activity's `onResume()` method in all other cases
+
 ### Context-capture
 //TODO add 
+
 # Version 1.9.1
 ## Installation
 Insert following lines into your `build.gradle` file
