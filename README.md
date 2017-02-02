@@ -117,7 +117,43 @@ Method `onStringLoaded()` is calling:
 - after activity's `onResume()` method in all other cases
 
 ### Context-capture
-//TODO add 
+There are manual and automatic way to take context screenshots. 
+
+#### Manual way
+When you launch your app in `context-capture` mode very first time it will make initial loading of the strings. After that you will be notified with a toast message. Then, either one- or two-finger long touch causes capturing of the screenshot, attaching the strings to it and uploading the image along with strings' coordinates to the server.
+
+#### Automatic way
+It's possible to integrate calls of the capture methods into your UI tests. 
+Make setup as you usually do for the UI tests...
+
+```groovy
+dependencies {
+   androidTestCompile ('com.android.support.test:runner:0.5')
+   androidTestCompile ('com.android.support.test:rules:0.5')
+}
+```
+... and create a test case for activity
+
+```java
+@RunWith(AndroidJUnit4.class)
+public class MainActivityCaptureTest extends ContextCaptureTestCase {
+
+    @Rule
+    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class, false, false);
+
+    @Test
+    public void takeScreenshot() throws Exception {
+        rule.launchActivity(new Intent());
+        ...some movements, button presses, clicks if needed
+        SmartlingInstrumentation.grab(rule.getActivity());
+    }
+}
+```
+> It's needed to prevent activity launch so that strings were loaded before it's launched. That's why we create `ActivityTestRule` object with `false` parameters.
+
+`ContextCaptureTestCase` does all the work to preload the strings.
+
+That's it. After this test case is executed you will see the screenshot of `MainActivity` with the strings marked on it in the dashboard.
 
 # Version 1.9.1
 ## Installation
