@@ -1,7 +1,7 @@
 # Latest version
-2.2.2
+2.2.3
 
-# Version 2.2.2
+# Documentation (for version 2.2.3 and later)
 ## Installation
 You have to add some configuration into your `app`'s `build.gradle`
 
@@ -155,7 +155,7 @@ public class MainActivityCaptureTest extends ContextCaptureTestCase {
 
 That's it. After this test case is executed you will see the screenshot of `MainActivity` with the strings marked on it in the dashboard.
 
-# Version 1.9.1
+# Version 1.9.1 (obsolete)
 ## Installation
 Insert following lines into your `build.gradle` file
 
