@@ -1,7 +1,7 @@
 # Latest version
-2.2.3
+2.3.0
 
-# Documentation (for version 2.2.3 and later)
+# Documentation
 ## Installation
 You have to add some configuration into your `app`'s `build.gradle`
 
@@ -124,12 +124,13 @@ When you launch your app in `context-capture` mode very first time it will make 
 
 #### Automatic way
 It's possible to integrate calls of the capture methods into your UI tests. 
-Make setup as you usually do for the UI tests...
+Make setup as you usually do for the UI tests along with Smartling SDK dependency (`context-automation` module)...
 
 ```groovy
 dependencies {
-   androidTestCompile ('com.android.support.test:runner:0.5')
-   androidTestCompile ('com.android.support.test:rules:0.5')
+   androidTestCompile 'com.android.support.test:runner:0.5'
+   androidTestCompile 'com.android.support.test:rules:0.5'
+   androidTestCompile 'com.smartling.android:context-automation:{latest_version}'
 }
 ```
 ... and create a test case for activity
@@ -155,61 +156,6 @@ public class MainActivityCaptureTest extends ContextCaptureTestCase {
 
 That's it. After this test case is executed you will see the screenshot of `MainActivity` with the strings marked on it in the dashboard.
 
-# Version 1.9.1 (obsolete)
-## Installation
-Insert following lines into your `build.gradle` file
-
-```groovy
-buildscript {
-  repositories {
-    maven { url 'https://raw.githubusercontent.com/Smartling/android-repository/releases'}
-    ...
-  }
-  dependencies {
-    classpath 'com.smartling.android:plugin:1.9.1'
-    ...
-  }
-}
-
-apply plugin: 'com.android.application'
-apply plugin: 'com.smartling.android.plugin'
-
-dependencies {
-  compile "com.smartling.android:sdk:1.9.1"
-  ...
-}
-
-smartling {
-  projectId = "<Project ID>"
-  projectSecret = "<Project AES Key>"
-  mode = "ota-serving"
-  logLevel = "verbose"
-}
-```
-## Options
-### projectId
-The id of the project in Smartling dashboard
-
-### projectSecret
-Project AES key for the OTA updates (required for `ota-serving` mode)
-### mode
-- `ota-serving` - Published strings are served to the user in his language and displayed in the app
-- `in-app-review` - Members of your team can log in to edit strings and review them in context inside the app
-- `disabled` (default) - The SDK doesn't affect the app whatsoever
-
-### logLevel
-Defines the min level of the log messages the SDK exposes to Logcat
-- none
-- verbose
-- debug
-- info
-- warn
-- error
-
-## Usage
-
-Use your resource strings as usual
-- `context.getString(R.string.some_string)` in the code
-- `@string/some_string` in the xml layout files
-
-and they will be localized according to the SDK mode.
+# Release notes
+## Version 2.3.0
+Create `context-automation` module as separate Gradle module to be integrated as dependency for UI integration tests.
