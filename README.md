@@ -44,6 +44,26 @@ smartling {
 ```
 
 **Step 4:** Add sdk dependency
+
+Add `maven { url 'https://raw.githubusercontent.com/Smartling/android-repository/releases'}` into your `repositories` block.
+Either into `allprojects` block of your project's `build.gradle`:
+```groovy
+allprojects {
+  repositories {
+     ...
+     maven { url 'https://raw.githubusercontent.com/Smartling/android-repository/releases'}
+  }
+}
+```
+... or into `repositories` block of your application's `build.gradle`
+
+```groovy
+repositories {
+   ...
+   maven { url 'https://raw.githubusercontent.com/Smartling/android-repository/releases'}
+}
+```
+Add sdk dependency into `dependencies` block as usually:
 ```groovy
 dependencies {
   compile "com.smartling.android:sdk:{latest_version}"
