@@ -1,11 +1,11 @@
 # Latest version
-2.3.0
+2.3.2
 
 # Documentation
 ## Installation
 You have to add some configuration into your `app`'s `build.gradle`
 
-**Step 1:** Add Smartling plugin dependency
+#### Step 1: Add Smartling plugin dependency
 ```groovy
 buildscript {
   repositories {
@@ -18,7 +18,7 @@ buildscript {
   }
 }
 ```
-**Step 2:** Apply plugin
+#### Step 2: Apply plugin
 
 ```groovy
 apply plugin: 'com.android.application'
@@ -26,7 +26,7 @@ apply plugin: 'com.smartling.android.plugin'
 ```
 Assure you add it after the Android application plugin.
 
-**Step 3:** Configure the plugin
+#### Step 3: Configure the plugin
 
 ```groovy
 smartling {
@@ -43,7 +43,7 @@ smartling {
 }
 ```
 
-**Step 4:** Add sdk dependency
+#### Step 4: Add sdk dependency
 
 Add `maven { url 'https://raw.githubusercontent.com/Smartling/android-repository/releases'}` into your `repositories` block.
 Either into `allprojects` block of your project's `build.gradle`:
@@ -81,7 +81,7 @@ Project AES key for the OTA updates.
 
 ### userIdentifier, userSecret
 The credentials from the project-specific token.
-> `auth` block is required for `context-capture` mode
+> `auth` block is required for `context-capture` mode and `uploadSourceStrings` gradle task (see below)
 
 ### mode
 - `ota-serving` - Published strings are served to the user in his language and displayed in the app
@@ -100,6 +100,20 @@ Defines the min level of the log messages the SDK exposes to Logcat
 
 ## Usage
 
+### Upload resource files with strings to the dashboard
+Use
+```
+./gradlew app:uploadSourceStrings
+```
+to retrieve all the resource files (from `/res` folder) containing `string`, `string-array` and `plural` tags for all the build variants and flavors (except `debug` ones) and upload them to the dashboard.
+
+Use it with `-Pauthorize` parameter to authorize the strings for the translation.
+```
+./gradlew app:uploadSourceStrings -Pauthorize
+```
+> Note that this task requires you to add `auth` block into your smartling configuration in `build.gradle`
+
+### In the code
 Use your resource strings as usual
 - `context.getString(R.string.some_string)` in the code
 - `@string/some_string` in the xml layout files
@@ -177,5 +191,13 @@ public class MainActivityCaptureTest extends ContextCaptureTestCase {
 That's it. After this test case is executed you will see the screenshot of `MainActivity` with the strings marked on it in the dashboard.
 
 # Release notes
-## Version 2.3.0
-Create `context-automation` module as separate Gradle module to be integrated as dependency for UI integration tests.
+
+### Version 2.3.2
+- Fix issue https://github.com/Smartling/android-repository/issues/5 (crash if WebView is presented in the layout).
+- Create gradle task `uploadSourceStrings` in the plugin to upload string resource files to the dashboard.
+
+### Version 2.3.1
+- Fix issue https://github.com/Smartling/android-repository/issues/3 associated with work in Instant Run mode.
+
+### Version 2.3.0
+- Create `context-automation` module as separate Gradle module to be integrated as dependency for UI integration tests.
