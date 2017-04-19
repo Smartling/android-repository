@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.smartling.android</groupId>
+  <artifactId>in-app-review</artifactId>
+  <versioning>
+    <versions>
+      <version>2.3.3-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20170419144620</lastUpdated>
+  </versioning>
+</metadata>
