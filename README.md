@@ -1,5 +1,5 @@
 # Latest version
-2.3.2
+2.3.3
 
 # Documentation
 ## Installation
@@ -191,6 +191,9 @@ public class MainActivityCaptureTest extends ContextCaptureTestCase {
 That's it. After this test case is executed you will see the screenshot of `MainActivity` with the strings marked on it in the dashboard.
 
 # Release notes
+
+### Version 2.3.3
+- Fix issue https://github.com/Smartling/android-repository/issues/7 (black title color in Toolbar)
 
 ### Version 2.3.2
 - Fix issue https://github.com/Smartling/android-repository/issues/5 (crash if WebView is presented in the layout).
