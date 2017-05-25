@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.smartling.android</groupId>
+  <artifactId>context-automation</artifactId>
+  <version>2.4.1-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20170525.072439</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20170525072439</lastUpdated>
+  </versioning>
+</metadata>
