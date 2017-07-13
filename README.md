@@ -1,5 +1,5 @@
 # Latest version
-2.4
+2.5
 
 > Starting from version 2.4 you can use functionality of Context-Capture and In-App-Review modes in the same build.
 See below installation and usage instructions for that combined **Review** mode.
@@ -48,13 +48,14 @@ smartling {
 
 #### Step 4: Add sdk dependency
 
-Add `maven { url 'https://raw.githubusercontent.com/Smartling/android-repository/releases'}` into your `repositories` block.
+Add specific repository urls into your `repositories` block.
 Either into `allprojects` block of your project's `build.gradle`:
 ```groovy
 allprojects {
   repositories {
      ...
      maven { url 'https://raw.githubusercontent.com/Smartling/android-repository/releases'}
+     maven { url "https://www.jitpack.io" }
   }
 }
 ```
@@ -64,6 +65,7 @@ allprojects {
 repositories {
    ...
    maven { url 'https://raw.githubusercontent.com/Smartling/android-repository/releases'}
+   maven { url "https://www.jitpack.io" }
 }
 ```
 Add sdk dependency into `dependencies` block as usually:
@@ -299,6 +301,10 @@ Note the `buildVariants` closure inside `smartling` block. Also, note that you s
 > You can still not to use build variants. Just don't forget to change *mode* from `context-capture` or `in-app-review` before release.
 
 # Release notes
+
+### Version 2.5
+- Significantly reduce the size that Smartling SDK adds to client application's apk file.
+- Fix issue with `ViewPager` capturing (in Context-Capture mode)
 
 ### Version 2.4
 - Context-Capture and In-App-Review modes are combined into one
