@@ -1,5 +1,5 @@
 # Latest version
-2.5.1
+2.5.2
 
 > Starting from version 2.4 you can use functionality of Context-Capture and In-App-Review modes in the same build.
 See below installation and usage instructions for that combined **Review** mode.
@@ -301,6 +301,9 @@ Note the `buildVariants` closure inside `smartling` block. Also, note that you s
 > You can still not to use build variants. Just don't forget to change *mode* from `context-capture` or `in-app-review` before release.
 
 # Release notes
+
+### Version 2.5.2
+-Fix issue with Android Gradle plugin 3.0.0 https://github.com/Smartling/android-repository/issues/8
 
 ### Version 2.5.1
 -Fix issue https://github.com/Smartling/android-repository/issues/9 (NPE crash in Context-Capture mode)
