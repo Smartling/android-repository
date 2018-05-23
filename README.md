@@ -1,5 +1,5 @@
 # Latest version
-2.5.2
+2.6.0
 
 > Starting from version 2.4 you can use functionality of Context-Capture and In-App-Review modes in the same build.
 See below installation and usage instructions for that combined **Review** mode.
