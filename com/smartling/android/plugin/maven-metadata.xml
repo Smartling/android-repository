@@ -29,7 +29,8 @@
       <version>2.6.1-SNAPSHOT</version>
       <version>2.6.3-SNAPSHOT</version>
       <version>2.6.4-SNAPSHOT</version>
+      <version>3.0.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20180911203545</lastUpdated>
+    <lastUpdated>20180919211643</lastUpdated>
   </versioning>
 </metadata>
