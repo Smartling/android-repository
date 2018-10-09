@@ -65,6 +65,8 @@ apply plugin: 'com.smartling.android.library'
 In your main `build.gradle` file, configure the Smartling plugin.
 
 ```groovy
+apply plugin: 'com.smartling.android.config'
+
 smartling {
   projectId = "<Project ID>"
   otaServing {
