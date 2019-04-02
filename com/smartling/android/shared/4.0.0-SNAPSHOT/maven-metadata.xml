@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.smartling.android</groupId>
+  <artifactId>shared</artifactId>
+  <version>4.0.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20190402.233000</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20190402233000</lastUpdated>
+  </versioning>
+</metadata>
