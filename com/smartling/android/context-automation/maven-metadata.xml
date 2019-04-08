@@ -3,7 +3,7 @@
   <groupId>com.smartling.android</groupId>
   <artifactId>context-automation</artifactId>
   <versioning>
-    <release>3.0.0</release>
+    <release>4.0.0</release>
     <versions>
       <version>2.3.0</version>
       <version>2.3.1</version>
@@ -17,7 +17,8 @@
       <version>2.6.1</version>
       <version>2.6.3</version>
       <version>3.0.0</version>
+      <version>4.0.0</version>
     </versions>
-    <lastUpdated>20180920202258</lastUpdated>
+    <lastUpdated>20190408215945</lastUpdated>
   </versioning>
 </metadata>
