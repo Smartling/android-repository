@@ -1,6 +1,12 @@
 # Latest version
 
-3.0.0
+4.0.0
+
+> Release 4.0.0 supports Gradle 4.x and Android plugin 3.3.x. Suport for pervious versions
+> of Gradle and the Android plugin are no longer support.
+* Upgrade Android plugin to 3.3.2
+* Upgrade Gradle to 4.10.1
+* Upgrade Android annotations to 4.6.0
 
 > Starting from version 3.0.0 you can apply the Smartling SDK to library projects as well as application projects.
 > Starting from version 2.4 you can use functionality of Context-Capture and In-App-Review modes in the same build.
