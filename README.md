@@ -1,3 +1,7 @@
+# Deprecated
+
+Smartling no longer supports this SDK.  It is left available for use as-is for Smartling customers who are interested in developing their own custom solutions.
+
 # Latest version
 
 4.0.0
